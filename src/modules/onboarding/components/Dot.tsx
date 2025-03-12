@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet, Text, View } from "react-native";
+import { Dimensions, StyleSheet, Text, TouchableWithoutFeedback, View } from "react-native";
 import React from "react";
 import Animated, {
   Extrapolation,
@@ -7,15 +7,17 @@ import Animated, {
   SharedValue,
   useAnimatedStyle,
 } from "react-native-reanimated";
+import { OnboardingData } from "../../../data/data";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
 type Props = {
   index: number;
   x: SharedValue<number>;
+  flatlistRef: React.RefObject<Animated.FlatList<OnboardingData[]>>;
 };
 
-const Dot = ({ index, x }: Props) => {
+const Dot = ({ index, x, flatlistRef }: Props) => {
   const animatedDotStyle = useAnimatedStyle(() => {
     const width = interpolate(
       x.value,
@@ -46,8 +48,14 @@ const Dot = ({ index, x }: Props) => {
       backgroundColor: backgroundColor,
     };
   });
+
+  const onPressHandler = () => {
+    if (flatlistRef?.current) {
+      flatlistRef.current.scrollToIndex({ index: index });
+    }
+  };
   return (
-    <View>
+    <TouchableWithoutFeedback onPress={onPressHandler} hitSlop={10}>
       <Animated.View
         key={index}
         style={[
@@ -60,7 +68,7 @@ const Dot = ({ index, x }: Props) => {
           animatedDotColorStyle,
         ]}
       />
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 

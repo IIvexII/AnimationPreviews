@@ -35,7 +35,7 @@ const Onboarding = () => {
         onViewableItemsChanged={viewableItemChangedHandler}
       />
       <View style={styles.bottomContainer}>
-        <Pagination data={data} x={x} />
+        <Pagination data={data} x={x} flatlistRef={flatListRef} />
         <CustomButton dataLength={data.length} x={x} flatListRef={flatListRef} flatListIndex={flatListIndex} />
       </View>
     </>
