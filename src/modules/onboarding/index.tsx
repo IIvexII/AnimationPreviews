@@ -5,11 +5,16 @@ import data, { OnboardingData } from "../../data/data";
 import RenderItem from "./components/RenderItem";
 import Pagination from "./components/Pagination";
 import CustomButton from "./components/CustomButton";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { useNavigation } from "@react-navigation/native";
+
+type OnboardingNavigationProp = NativeStackNavigationProp<RootParamList, "Onboarding">;
 
 const Onboarding = () => {
-  const flatListRef = useAnimatedRef<Animated.FlatList<OnboardingData[]>>();
   const x = useSharedValue(0);
   const flatListIndex = useSharedValue(0);
+  const navigation = useNavigation<OnboardingNavigationProp>();
+  const flatListRef = useAnimatedRef<Animated.FlatList<OnboardingData[]>>();
 
   const scrollHandler = useAnimatedScrollHandler({
     onScroll: (event) => {
@@ -36,7 +41,13 @@ const Onboarding = () => {
       />
       <View style={styles.bottomContainer}>
         <Pagination data={data} x={x} flatlistRef={flatListRef} />
-        <CustomButton dataLength={data.length} x={x} flatListRef={flatListRef} flatListIndex={flatListIndex} />
+        <CustomButton
+          onPress={() => navigation.navigate("Details")}
+          dataLength={data.length}
+          x={x}
+          flatListRef={flatListRef}
+          flatListIndex={flatListIndex}
+        />
       </View>
     </>
   );

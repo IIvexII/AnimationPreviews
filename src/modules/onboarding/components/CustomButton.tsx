@@ -16,9 +16,11 @@ type Props = {
   x: SharedValue<number>;
   flatListRef: React.RefObject<Animated.FlatList<OnboardingData[]>>;
   flatListIndex: SharedValue<number>;
+
+  onPress: () => void;
 };
 
-const CustomButton = ({ x, flatListRef, flatListIndex, dataLength }: Props) => {
+const CustomButton = ({ x, flatListRef, flatListIndex, dataLength, onPress }: Props) => {
   const animatedButtonStyle = useAnimatedStyle(() => {
     const backgroundColor = interpolateColor(
       x.value,
@@ -52,6 +54,8 @@ const CustomButton = ({ x, flatListRef, flatListIndex, dataLength }: Props) => {
   const onPressHandler = () => {
     if (flatListRef.current && flatListIndex.value < dataLength - 1) {
       flatListRef.current.scrollToIndex({ index: flatListIndex.value + 1 });
+    } else {
+      onPress();
     }
   };
 
