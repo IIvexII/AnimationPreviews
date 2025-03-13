@@ -64,7 +64,7 @@ const CustomButton = ({ x, flatListRef, flatListIndex, dataLength, onPress }: Pr
       <Animated.View style={[styles.button, animatedButtonStyle]}>
         <Animated.Image
           style={[styles.arrowIcon, animatedArrowStyle]}
-          source={require("../../../assets/images/ArrowIcon.png")}
+          source={require("../assets/images/ArrowIcon.png")}
         />
         <Animated.Text style={[styles.text, animatedTextStyle]}>Get Started</Animated.Text>
       </Animated.View>
