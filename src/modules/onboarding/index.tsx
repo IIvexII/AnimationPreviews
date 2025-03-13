@@ -42,7 +42,7 @@ const Onboarding = () => {
       <View style={styles.bottomContainer}>
         <Pagination data={data} x={x} flatlistRef={flatListRef} />
         <CustomButton
-          onPress={() => navigation.navigate("Details")}
+          onPress={() => navigation.goBack()}
           dataLength={data.length}
           x={x}
           flatListRef={flatListRef}

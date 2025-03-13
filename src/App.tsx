@@ -3,8 +3,9 @@ import { StyleSheet, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import Details from "./modules/details";
+import Home from "./modules/home";
 import Onboarding from "./modules/onboarding";
+import DragBox from "./modules/drag-box";
 
 const Stack = createNativeStackNavigator<RootParamList>();
 
@@ -13,8 +14,9 @@ export default function App() {
     <View style={styles.container}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name='Home' component={Home} />
+          <Stack.Screen name='DragBox' component={DragBox} />
           <Stack.Screen name='Onboarding' component={Onboarding} />
-          <Stack.Screen name='Details' component={Details} />
         </Stack.Navigator>
       </NavigationContainer>
 
