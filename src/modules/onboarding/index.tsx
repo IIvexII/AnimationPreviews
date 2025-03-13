@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View, ViewToken } from "react-native";
 import Animated, { useAnimatedRef, useAnimatedScrollHandler, useSharedValue } from "react-native-reanimated";
-import data, { OnboardingData } from "../../data/data";
+import data, { OnboardingData } from "./data/data";
 import RenderItem from "./components/RenderItem";
 import Pagination from "./components/Pagination";
 import CustomButton from "./components/CustomButton";

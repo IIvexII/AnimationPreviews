@@ -7,7 +7,7 @@ import Animated, {
   SharedValue,
   useAnimatedStyle,
 } from "react-native-reanimated";
-import { OnboardingData } from "../../../data/data";
+import { OnboardingData } from "../data/data";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 

@@ -4,7 +4,7 @@ import Animated, { SharedValue } from "react-native-reanimated";
 
 import Dot from "./Dot";
 
-import { OnboardingData } from "../../../data/data";
+import { OnboardingData } from "../data/data";
 
 type Props = {
   data: OnboardingData[];

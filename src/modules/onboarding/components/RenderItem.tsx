@@ -1,6 +1,6 @@
 import { Dimensions, StyleSheet, Text, useWindowDimensions, View } from "react-native";
 import React from "react";
-import { OnboardingData } from "../../../data/data";
+import { OnboardingData } from "../data/data";
 import LottieView from "lottie-react-native";
 import Animated, { Extrapolation, interpolate, SharedValue, useAnimatedStyle } from "react-native-reanimated";
 
