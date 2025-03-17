@@ -11,9 +11,10 @@ const Home = () => {
   const navigation = useNavigation<HomeNavigationProp>();
 
   const pages = [
-    { name: "CircularSlider", title: "🔄 Circular Slider Demo" },
+    { name: "Ticker", title: "🔢 Ticker" },
     { name: "DragBox", title: "👋 Drag Box Demo" },
     { name: "Onboarding", title: "🚀 Onboarding Demo" },
+    { name: "CircularSlider", title: "🔄 Circular Slider Demo" },
   ];
 
   return (

@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Home from "./modules/home";
+import Ticker from "./modules/ticker";
 import DragBox from "./modules/drag-box";
 import Onboarding from "./modules/onboarding";
 import CircularSlider from "./modules/circular-slider";
@@ -16,6 +17,7 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name='Home' component={Home} />
+          <Stack.Screen name='Ticker' component={Ticker} />
           <Stack.Screen name='DragBox' component={DragBox} />
           <Stack.Screen name='Onboarding' component={Onboarding} />
           <Stack.Screen name='CircularSlider' component={CircularSlider} />

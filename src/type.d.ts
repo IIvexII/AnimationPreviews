@@ -3,4 +3,5 @@ type RootParamList = {
   DragBox: undefined;
   Onboarding: undefined;
   CircularSlider: undefined;
+  Ticker: undefined;
 };
