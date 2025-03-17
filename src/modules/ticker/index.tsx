@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, StyleSheet, View } from "react-native";
 
 import Ticker from "./components/Ticker";
 
-const TickerPage = () => {
-  const [number, setNumber] = React.useState(145874);
+const TickerPage: React.FC = () => {
+  const [number, setNumber] = useState(145874);
 
   return (
     <View style={styles.container}>
-      <Ticker number={number} fontSize={80} />
+      <Ticker number={number} fontSize={100} />
       <Button
         title='Refresh'
         onPress={() => {

@@ -1,47 +1,43 @@
-import React from "react";
-import { Dimensions, StyleSheet, View } from "react-native";
+import React, { useEffect, useState } from "react";
+import { Dimensions, View } from "react-native";
 
 import TickerList from "./TickerList";
 
-type TickerProps = {
+interface TickerProps {
   number: number;
   fontSize: number;
-};
+}
 
-const Ticker = (props: TickerProps) => {
-  const numberList = props.number.toString().split("").map(Number);
-  const [fontSize, setFontSize] = React.useState(props.fontSize);
-  const isLayoutChanged = React.useRef(false);
+const Ticker: React.FC<TickerProps> = ({ number, fontSize: initialFontSize }) => {
+  const numberList = number.toString().split("").map(Number);
+  const [fontSize, setFontSize] = useState(initialFontSize);
+  const [isAdjusted, setIsAdjusted] = useState(false);
 
-  const handleLayout = (event: any) => {
-    if (!isLayoutChanged.current) {
-      const { width } = Dimensions.get("window");
+  useEffect(() => {
+    const adjustFontSize = () => {
+      if (isAdjusted) return;
 
-      const widthByFontSize = props.fontSize * numberList.length;
-      console.log(widthByFontSize, width);
+      const windowWidth = Dimensions.get("window").width;
+      const requiredWidth = initialFontSize * numberList.length;
 
-      if (widthByFontSize > width) {
-        const fontSize = (width / numberList.length) * 1.6;
-        setFontSize(fontSize);
+      if (requiredWidth > windowWidth) {
+        const adjustedFontSize = (windowWidth / numberList.length) * 1.6;
+        setFontSize(adjustedFontSize);
       }
-      isLayoutChanged.current = true;
-    }
-  };
+
+      setIsAdjusted(true);
+    };
+
+    adjustFontSize();
+  }, [numberList.length, initialFontSize, isAdjusted]);
 
   return (
-    <View style={[styles.tickerContainer]} onLayout={handleLayout}>
-      {numberList.map((number, index) => (
-        <TickerList key={index} number={number} fontSize={fontSize} />
+    <View style={{ flexDirection: "row", overflow: "hidden" }}>
+      {numberList.map((num, index) => (
+        <TickerList key={index} number={num} fontSize={fontSize} />
       ))}
     </View>
   );
 };
 
 export default Ticker;
-
-const styles = StyleSheet.create({
-  tickerContainer: {
-    flexDirection: "row",
-    overflow: "hidden",
-  },
-});
