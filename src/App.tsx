@@ -17,12 +17,12 @@ export default function App() {
     <View style={styles.container}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name='AnimatedFlatList' component={AnimatedFlatList} />
           <Stack.Screen name='Home' component={Home} />
           <Stack.Screen name='Ticker' component={Ticker} />
           <Stack.Screen name='DragBox' component={DragBox} />
           <Stack.Screen name='Onboarding' component={Onboarding} />
           <Stack.Screen name='CircularSlider' component={CircularSlider} />
+          <Stack.Screen name='AnimatedFlatList' component={AnimatedFlatList} />
         </Stack.Navigator>
       </NavigationContainer>
 
