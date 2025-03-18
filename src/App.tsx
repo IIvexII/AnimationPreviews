@@ -8,6 +8,7 @@ import Ticker from "./modules/ticker";
 import DragBox from "./modules/drag-box";
 import Onboarding from "./modules/onboarding";
 import CircularSlider from "./modules/circular-slider";
+import AnimatedFlatList from "./modules/animated-flatlist";
 
 const Stack = createNativeStackNavigator<RootParamList>();
 
@@ -16,6 +17,7 @@ export default function App() {
     <View style={styles.container}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name='AnimatedFlatList' component={AnimatedFlatList} />
           <Stack.Screen name='Home' component={Home} />
           <Stack.Screen name='Ticker' component={Ticker} />
           <Stack.Screen name='DragBox' component={DragBox} />

@@ -4,4 +4,5 @@ type RootParamList = {
   Onboarding: undefined;
   CircularSlider: undefined;
   Ticker: undefined;
+  AnimatedFlatList: undefined;
 };
