@@ -2,8 +2,8 @@ import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import Animated, { interpolate, SharedValue, useAnimatedStyle } from "react-native-reanimated";
 
-import { AVATAR_SIZE, GAP, ITEM_SIZE, PADDING, SPACING } from "../constants/config";
 import DATA from "../mock/data";
+import { AVATAR_SIZE, GAP, ITEM_SIZE, PADDING, SPACING } from "../constants/config";
 
 type ListItemProps = {
   item: (typeof DATA)[0];

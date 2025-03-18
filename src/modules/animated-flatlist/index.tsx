@@ -1,7 +1,6 @@
 import React from "react";
 import * as NavigationBar from "expo-navigation-bar";
 import { Image, StatusBar, StyleSheet, View } from "react-native";
-import { useSharedValue } from "react-native-reanimated";
 
 import DATA from "./mock/data";
 import AnimatedFlatList from "./components/AnimatedFlatList";
@@ -17,8 +16,12 @@ const AnimatedFlatListPage = () => {
 
       <View style={StyleSheet.absoluteFillObject}>
         <View style={styles.topBar}>
-          <Image source={require("./assets/menu.png")} resizeMode='contain' style={{ width: 40, height: 40 }} />
-          <Image source={require("../../assets/images/my-image.png")} style={styles.myAvatar} />
+          <Image
+            source={require("./assets/menu.png")}
+            resizeMode='contain'
+            style={{ width: 40, height: 40, zIndex: 100 }}
+          />
+          <Image source={require("../../assets/images/my-image.png")} style={[styles.myAvatar, { zIndex: 100 }]} />
         </View>
       </View>
 
@@ -52,6 +55,6 @@ const styles = StyleSheet.create({
   flatListStyle: {
     marginTop: (StatusBar?.currentHeight || 42) + SPACING * 2 + 80,
     paddingHorizontal: SPACING,
-    paddingBottom: SPACING,
+    paddingBottom: SPACING + ITEM_SIZE,
   },
 });
