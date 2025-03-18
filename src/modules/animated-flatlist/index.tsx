@@ -14,6 +14,7 @@ const AnimatedFlatListPage = () => {
       {/* Background Image */}
       <Image source={require("./assets/background.png")} style={styles.background} blurRadius={100} />
 
+      {/* Top Bar */}
       <View style={StyleSheet.absoluteFillObject}>
         <View style={styles.topBar}>
           <Image
