@@ -5,4 +5,5 @@ type RootParamList = {
   CircularSlider: undefined;
   Ticker: undefined;
   AnimatedFlatList: undefined;
+  ImageZoom: undefined;
 };

@@ -11,6 +11,7 @@ const Home = () => {
   const navigation = useNavigation<HomeNavigationProp>();
 
   const pages = [
+    { name: "ImageZoom", title: "🔍 Image Zoom" },
     { name: "AnimatedFlatList", title: "📜 Scrolling Animation" },
     { name: "Ticker", title: "🔢 Ticker" },
     { name: "DragBox", title: "👋 Drag Box Demo" },
