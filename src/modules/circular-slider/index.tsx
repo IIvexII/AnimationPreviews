@@ -1,6 +1,15 @@
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
-import Animated, { FadeIn, FadeOut, useSharedValue } from "react-native-reanimated";
+import Animated, {
+  FadeIn,
+  FadeOut,
+  runOnJS,
+  useAnimatedScrollHandler,
+  useSharedValue,
+  withDecay,
+  withSpring,
+  withTiming,
+} from "react-native-reanimated";
 
 import SliderItem from "./components/SliderItem";
 
@@ -11,10 +20,12 @@ const CircularSlider = () => {
   const scrollX = useSharedValue(0);
   const [scrollIndex, setScrollIndex] = useState(0);
 
-  const scrollHandler = (event: any) => {
-    scrollX.value = event.nativeEvent.contentOffset.x / (CIRCLE_RADIUS * 2 + SPACING);
-    setScrollIndex(Math.round(scrollX.value));
-  };
+  const scrollHandler = useAnimatedScrollHandler((event: any) => {
+    scrollX.value = event.contentOffset.x / (CIRCLE_RADIUS * 2 + SPACING);
+    if (scrollX.value !== scrollIndex) {
+      runOnJS(setScrollIndex)(Math.round(scrollX.value));
+    }
+  });
 
   return (
     <View style={styles.container}>
@@ -29,6 +40,7 @@ const CircularSlider = () => {
         data={IMAGES}
         renderItem={({ item, index }) => <SliderItem source={item} index={index} scrollIndex={scrollX} />}
         horizontal={true}
+        disableIntervalMomentum={true}
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.flatList}
         decelerationRate={"fast"}
