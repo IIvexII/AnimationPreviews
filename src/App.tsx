@@ -10,6 +10,7 @@ import Onboarding from "./modules/onboarding";
 import CircularSlider from "./modules/circular-slider";
 import AnimatedFlatList from "./modules/animated-flatlist";
 import ImageZoom from "./modules/image-zoom";
+import InstaLike from "./modules/insta-like";
 
 const Stack = createNativeStackNavigator<RootParamList>();
 
@@ -21,6 +22,7 @@ export default function App() {
           <Stack.Screen name='Home' component={Home} />
           <Stack.Screen name='Ticker' component={Ticker} />
           <Stack.Screen name='DragBox' component={DragBox} />
+          <Stack.Screen name='InstaLike' component={InstaLike} />
           <Stack.Screen name='ImageZoom' component={ImageZoom} />
           <Stack.Screen name='Onboarding' component={Onboarding} />
           <Stack.Screen name='CircularSlider' component={CircularSlider} />

@@ -11,6 +11,7 @@ const Home = () => {
   const navigation = useNavigation<HomeNavigationProp>();
 
   const pages = [
+    { name: "InstaLike", title: "❤️ Instagram Like Animation" },
     { name: "ImageZoom", title: "🔍 Image Zoom" },
     { name: "AnimatedFlatList", title: "📜 Scrolling Animation" },
     { name: "Ticker", title: "🔢 Ticker" },

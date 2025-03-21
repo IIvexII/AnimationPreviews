@@ -6,4 +6,5 @@ type RootParamList = {
   Ticker: undefined;
   AnimatedFlatList: undefined;
   ImageZoom: undefined;
+  InstaLike: undefined;
 };
